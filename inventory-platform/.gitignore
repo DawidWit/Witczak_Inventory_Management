@@ -1,38 +1,46 @@
-# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
+# -----------------------------------------------------------------------------
+# General Ignores
+# -----------------------------------------------------------------------------
+.DS_Store             # macOS system files
+Thumbs.db             # Windows thumbnail cache
+.env                  # Environment variables (CRITICAL: DO NOT COMMIT SENSITIVE DATA)
+.vscode/              # VS Code settings (optional, if you want to share specific settings, remove this)
+.idea/                # IntelliJ/PyCharm IDE files
 
-# Dependencies
-node_modules
-.pnp
-.pnp.js
+# -----------------------------------------------------------------------------
+# Python (Backend) Specific Ignores
+# -----------------------------------------------------------------------------
+# Byte-code files
+*.pyc
+__pycache__/
 
-# Local env files
-.env
-.env.local
-.env.development.local
-.env.test.local
-.env.production.local
+# Virtual environment
+venv/
+.venv/
 
-# Testing
-coverage
+# Python build artifacts
+*.egg-info/
+dist/
+build/
 
-# Turbo
-.turbo
+# MyPy cache (if using mypy for type checking)
+.mypy_cache/
 
-# Vercel
-.vercel
+postgres_data/
 
-# Build Outputs
-.next/
-out/
-build
-dist
+node_modules/
 
+# Build output directories
+build/
+dist/
+.next/ # For Next.js projects
+out/   # Common for static site generators
 
-# Debug
+# npm debug logs
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 
-# Misc
-.DS_Store
-*.pem
+# Expo (for React Native with Expo)
+.expo/
+web-build/
