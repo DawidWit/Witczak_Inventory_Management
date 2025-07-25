@@ -1,2 +1,4 @@
 from app.db.session import Base
-# from app.models.user import User  ← we’ll add models here
+from app.models.user import User
+
+
