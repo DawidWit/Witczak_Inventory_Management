@@ -1,23 +1,41 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
-from api.v1.routes import auth, items, users
-from app.core.config import settings
+from app.api.v1.api import api_router
+from app.database import engine
+from app.models import user, resource
 
-app = FastAPI(title="Inventory Backend API", version="1.0.0")
+# Create database tables
+user.Base.metadata.create_all(bind=engine)
+resource.Base.metadata.create_all(bind=engine)
 
-app.include_router(items.router)
-app.include_router(users.router)
-app.include_router(auth.router)
+app = FastAPI(
+    title="Inventory Management API",
+    description="A comprehensive inventory management system API",
+    version="1.0.0",
+    docs_url="/docs",
+    redoc_url="/redoc"
+)
 
-# CORS setup (customize as needed)
+# CORS middleware
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=settings.ALLOWED_ORIGINS,
+    allow_origins=["*"],
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
 )
 
+# Include API router
+app.include_router(api_router, prefix="/api/v1")
+
 @app.get("/")
+def root():
+    return {"message": "Inventory Management API", "version": "1.0.0"}
+
+@app.get("/health")
 def health_check():
-    return {"status": "ok"}
+    return {"status": "healthy"}
+
+if __name__ == "__main__":
+    import uvicorn
+    uvicorn.run(app, host="0.0.0.0", port=8000)

@@ -1,14 +1,13 @@
 from pydantic_settings import BaseSettings
-from typing import List
-import os
+from typing import Optional
 
 class Settings(BaseSettings):
-    PROJECT_NAME: str = "Inventory Platform"
-    BACKEND_CORS_ORIGINS: List[str] = ["http://localhost:3000"]
-    DATABASE_URL: str = os.getenv("DATABASE_URL")
-    ALLOWED_ORIGINS: List[str] = ["*"]  # or read from env
-
+    DATABASE_URL: str
+    SECRET_KEY: str
+    ALGORITHM: str = "HS256"
+    ACCESS_TOKEN_EXPIRE_MINUTES: int = 30
+    
     class Config:
-        case_sensitive = True
+        env_file = ".env"
 
 settings = Settings()
