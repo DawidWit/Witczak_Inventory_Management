@@ -1,0 +1,9 @@
+{
+  "name": "backend",
+  "scripts": {
+    "dev": "uvicorn app.main:app --reload --host 0.0.0.0 --port 8000",
+    "build": "echo 'No build step for backend'",
+    "lint": "echo 'No lint step for backend'",
+    "check-types": "echo 'No type checking for backend'"
+  }
+}
