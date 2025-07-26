@@ -64,22 +64,20 @@ services:
       - inventory_network
     profiles:
       - dev # Only run in development
-
-  # Future: React Web Frontend (Uncomment and configure when ready)
-  # web:
-  #   build:
-  #     context: ./apps/frontend
-  #     dockerfile: Dockerfile
-  #   ports:
-  #     - "3000:3000"
-  #   volumes:
-  #     - ./apps/frontend:/app
-  #     - /app/node_modules
-  #   networks:
-  #     - inventory_network
-  #   depends_on:
-  #     - backend
-  #   # command: npm start # or yarn start or pnpm start
+  web:
+    build:
+      context: ./apps/web
+      dockerfile: Dockerfile
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./apps/web:/app
+      - /app/node_modules
+    networks:
+      - inventory_network
+    depends_on:
+      - backend
+    command: npm run dev -- --host
 
 volumes:
   postgres_data:
