@@ -1,0 +1,129 @@
+.container {
+    display: flex;
+    flex-direction: row; 
+    height: 100%;
+    width: 100%;
+}
+
+.left {
+    flex: 1;
+    background: linear-gradient(315deg, #388b5b, #2b7349); 
+}
+
+.right {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #fafafa;
+    padding: 20px;
+}
+
+.title {
+    color: #2b7349;
+    font-family: 'Inter', sans-serif;
+    font-size: 46px;
+    text-align: center;
+    margin-top: 0;
+    margin-bottom: 10px;
+    font-weight: 300;
+}
+
+.subtitle {
+    color: #757575;
+    font-family: 'Inter', sans-serif;
+    font-size: 23px;
+    text-align: center;
+    padding-bottom: 0;
+    margin-top: 0;
+    margin-bottom: 25px;
+}
+
+.loginBtn {
+    background-color: #2b7349;
+    color: white;
+    padding: 15px 40px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 18px;
+    width: auto;
+    font-size: 14px; 
+    max-width: 200px;
+    width: 100%;
+    margin: 0 auto;
+}
+
+.input-container {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    width: 100%;
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+    width: 100%;
+    align-items: center;
+    max-width: 450px;
+    margin: 0 auto;
+}
+
+.input-wrapper {
+    margin: 5px 0;
+    display: flex;
+    align-items: center;
+    border: 1.5px solid #4a7c59;
+    border-radius: 6px;
+    background-color: white;
+    padding: 10px 15px;
+    overflow: hidden;
+    width: 100%;
+    gap: 12px;
+    box-sizing: border-box;
+}
+
+.input-field {
+    border: none;
+    outline: none;
+    padding-left: 0;
+    padding-right: 5px;
+    font-size: 18px;
+    color: #2b7349;
+    flex-grow: 1;
+    width: 100%;
+}
+
+.input-field::placeholder {
+    color: #2b7349;
+}
+
+.input-field::-webkit-input-placeholder {
+  color: #2b7349;
+}
+.input-field::-moz-placeholder {
+  color: #2b7349;
+}
+.input-field:-ms-input-placeholder {
+  color: #2b7349;
+}
+.input-field:-moz-placeholder {
+  color: #2b7349;
+}
+
+.register { 
+    position: absolute; 
+    bottom: 5px;
+    right: 20px;
+    font-size: 20px;
+    color: #757575;
+}
+
+.register a {
+    color: #2b7349;
+    text-decoration: none;
+    font-size: 20px; 
+}

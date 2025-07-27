@@ -1,0 +1,388 @@
+.dashboardContainer {
+    display: grid;
+    grid-template-columns: 300px 1fr;
+    height: 100vh;
+    width: 100vw;
+    overflow: hidden;
+}
+
+.sidebar {
+    background-color: #f0f2f5;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    border-right: 1px solid #e0e0e0;
+    align-items: flex-start;
+}
+
+.sidebarHeader {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 10px;
+}
+
+.sidebarTitle {
+    color: #2b7349;
+    padding-left: 10px;
+    font-family: 'Inter', sans-serif;
+    font-size: 26px;
+    font-weight: 500;
+    margin: 0;
+}
+
+.addResourceBtn {
+    background-color: #2b7349;
+    color: white;
+    padding: 12px 15px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    width: 100%;
+    justify-content: center;
+    font-weight: bold;
+}
+
+.filterSection {
+    width: 100%;
+}
+
+.filterTitle {
+    color: #444;
+    font-family: 'Inter', sans-serif;
+    font-size: 18px;
+    margin-bottom: 10px;
+    font-weight: 500;
+}
+
+.hiddenCheckbox {
+    position: absolute;
+    opacity: 0;
+    width: 0;
+    height: 0;
+    pointer-events: none;
+}
+
+.customCheckbox {
+    display: inline-block;
+    width: 18px;
+    height: 18px;
+    border-radius: 4px;
+    background-color: white;
+    position: relative;
+    cursor: pointer;
+    flex-shrink: 0;
+}
+
+.customCheckbox::after {
+    content: '✔';
+    font-size: 14px;
+    color: white;
+    display: block;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    opacity: 0;
+    transition: opacity 0.2s ease-in-out;
+}
+
+.hiddenCheckbox:focus+.customCheckbox {
+    box-shadow: 0 0 0 3px rgba(43, 115, 73, 0.4);
+}
+
+.customCheckboxAvailable {
+    border: 2px solid #2b7349;
+}
+
+.hiddenCheckbox:checked+.customCheckboxAvailable {
+    background-color: #2b7349;
+    border-color: #2b7349;
+}
+
+.hiddenCheckbox:checked+.customCheckboxAvailable::after {
+    opacity: 1;
+}
+
+.customCheckboxLowStock {
+    border: 2px solid #e5ab10;
+}
+
+.hiddenCheckbox:checked+.customCheckboxLowStock {
+    background-color: #e5ab10;
+    border-color: #e5ab10;
+}
+
+.hiddenCheckbox:checked+.customCheckboxLowStock::after {
+    opacity: 1;
+}
+
+.customCheckboxOutOfStock {
+    border: 2px solid #b91238;
+}
+
+.hiddenCheckbox:checked+.customCheckboxOutOfStock {
+    background-color: #b91238;
+    border-color: #b91238;
+}
+
+.hiddenCheckbox:checked+.customCheckboxOutOfStock::after {
+    opacity: 1;
+}
+
+.radioAvaliable,
+.radioLowStock,
+.radioOutOfStock {
+    color: #2b7349;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+    font-size: 16px;
+    padding-bottom: 5px;
+}
+
+.radioLowStock {
+    color: #e5ab10;
+}
+
+.radioOutOfStock {
+    color: #b91238;
+}
+
+.categoryItem {
+    font-size: 16px;
+    padding-left: 10px;
+    color: #555;
+    margin-bottom: 8px;
+    cursor: pointer;
+}
+
+.showMoreBtn {
+    background: none;
+    border: none;
+    color: #2b7349;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    padding: 0;
+    margin-top: 10px;
+}
+
+.logoutSection {
+    margin-top: auto;
+    width: 100%;
+    color: #555;
+    font-size: 16px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding-top: 20px;
+    border-top: 1px solid #e0e0e0;
+}
+
+.mainContent {
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    padding: 20px 30px;
+    overflow-y: auto;
+}
+
+.mainHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.greeting {
+    color: #666;
+    font-family: 'Inter', sans-serif;
+    font-size: 28px;
+    margin: 0;
+    font-weight: 500;
+}
+
+.headerControls {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.searchBox {
+    display: flex;
+    align-items: center;
+    border: 2px solid #888;
+    border-radius: 5px;
+    padding: 8px 10px;
+}
+
+.searchInput {
+    padding-left: 10px;
+    border-radius: 5px;
+    font-size: 17px;
+    outline: none;
+    border: none;
+    width: 400px;
+    color: #333;
+    background: transparent;
+}
+
+.searchFilters {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.dateRange {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    border: 2px solid #888;
+    border-radius: 5px;
+    padding: 8px 10px;
+    color: #333;
+    font-size: 17px;
+}
+
+.dateRange>svg {
+    flex-shrink: 0;
+}
+
+.dateInput {
+    border: none;
+    outline: none;
+    font-size: 17px;
+    color: #333;
+    background: transparent;
+    width: 95px;
+    text-align: center;
+}
+
+.dateSeparator {
+    height: 30px;
+    width: 2px;
+    background-color: #888;
+    flex-shrink: 0;
+}
+
+.sortDropdown {
+    position: relative;
+    display: flex;
+    align-items: center;
+    border: 2px solid #888;
+    border-radius: 5px;
+    padding: 11px 10px;
+    gap: 8px;
+}
+
+.sortDropdown>svg {
+    flex-shrink: 0;
+}
+
+.sortSelect {
+    border: none;
+    outline: none;
+    background: transparent;
+    font-size: 17px;
+    color: #333;
+    appearance: none;
+    padding-right: 5px;
+    cursor: pointer;
+    flex-grow: 1;
+}
+
+
+.inventoryList {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin: 3px 5px;
+}
+
+.inventoryItem {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #999;
+    padding: 10px 0px;
+}
+
+.itemDetails {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.itemName {
+    font-size: 19px;
+    color: #333;
+    font-weight: 600;
+    margin: 0;
+}
+
+.itemTags {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 8px;
+}
+
+.itemCategory {
+    font-size: 17px;
+    color: #2b7349;
+    font-weight: bold;
+    margin: 0;
+}
+
+.itemStatusOutOfStock {
+    background-color: #fce9ed;
+    color: #d9534f;
+    padding: 5px 10px;
+    border-radius: 4px;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.itemStatusLowStock {
+    background-color: #fbf2d8;
+    color: #f0ad4e;
+    padding: 5px 10px;
+    border-radius: 4px;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.itemStatusAvailable {
+    background-color: #eff7f7;
+    color: #5cb85c;
+    padding: 5px 10px;
+    border-radius: 4px;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.stockCount {
+    padding-left: 3px;
+    font-weight: bold;
+}
+
+.ellipsisIcon {
+    font-size: 44px;
+    color: #2b7349;
+    cursor: pointer;
+    padding: 5px;
+}
